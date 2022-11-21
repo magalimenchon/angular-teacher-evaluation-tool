@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Estudiante</th>
+        <th scope="col">Archivo adjunto</th>
+        <th scope="col">Comentario en línea</th>
+        <th scope="col">Fecha de entrega</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let assignment of assignments" >
+        <td>{{assignment.student.lastName}}, {{assignment.student.firstName}}</td>
+        <td>{{assignment.task.file}}</td>
+        <td>{{assignment.task.comment}}</td>
+        <td>{{assignment.task.submmited_date | date: 'medium'}}</td>
+        <td>definir</td> <!--CALIFICADO, PENDIENTE DE CALIFICACION, CALIFICADO FUERA DE TERMINO-->
+        <td>{{assignment.task.grade}}</td> <!--CALIFICADO, PENDIENTE DE CALIFICACION-->
+      </tr>
+    </tbody>
+  </table>
