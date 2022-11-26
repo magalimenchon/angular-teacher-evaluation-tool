@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit(formQualification.value)" #formQualification="ngForm">
+<form (ngSubmit)="onSubmit(formQualification)" #formQualification="ngForm" [hidden]="formQualification.submitted">
     <div class="mb-4">
         <label for="grade" class="form-label">Ingresar nota: </label>
         <div class="d-grid gap-2 col-4" style="margin-left: 22rem;">
@@ -9,6 +9,11 @@
         <div [hidden]="grade.valid || !grade.value" class="alert alert-danger">La calificación debe ser entre 1 y 10.</div>
     </div> 
     <div class="d-grid gap-2 col-4" style="margin-left: 22rem;">
-        <button type="submit" class="btn btn-success" [disabled]="formQualification.invalid">Enviar calificación</button>
+        <button type="submit" id="button-submit" class="btn btn-success" [disabled]="formQualification.invalid">Enviar calificación</button>
     </div>
 </form>
+<div [hidden]="!formQualification.submitted">
+    <div class="alert alert-success">La calificación se guardó correctamente</div>
+    <div class="mb-4"> Nota:  {{assignment.task.grade}}
+    </div>   
+</div>

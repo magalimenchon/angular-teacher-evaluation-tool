@@ -16,6 +16,7 @@ import { ButtonGoBackComponent } from './button-go-back/button-go-back.component
 import { DetailAssignmentComponent } from './detail-assignment/detail-assignment.component';
 import { FormQualificationComponent } from './form-qualification/form-qualification.component';
 import { FormsModule } from '@angular/forms'
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { FormsModule } from '@angular/forms'
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

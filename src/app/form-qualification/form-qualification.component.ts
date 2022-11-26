@@ -15,20 +15,25 @@ export class FormQualificationComponent implements OnInit {
   @Output()
   assignmentChange: EventEmitter<Assignment> = new EventEmitter<Assignment>();
 
+  @Output()
+  submitted: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor(private assignmentDataService: AssignmentDataService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(values: any): void {
-    console.log(values);
-    this.putAssignment(values);
+  onSubmit(form: any): void {
+    console.log(form.values);
+    this.putAssignment(form.values);
+    this.submitted = form.submitted;
+    this.submitted.emit(form.submitted);
   }
 
   putAssignment(values: any): void {
     if(values.grade >= 1 && values.grade <= 10){
       this.assignment.task.grade = values.grade;
-      this.assignmentChange.emit();
+      this.assignmentChange.emit(this.assignment);
       this.assignmentDataService.putAssignmentById(this.assignment.id, this.assignment);
     }
   }

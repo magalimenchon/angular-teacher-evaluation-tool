@@ -28,5 +28,4 @@ export class DetailAssignmentComponent implements OnInit {
     this.assignmentDataService.getAssignmentByIdToGrade(id)
       .subscribe(assignment => this.assignment = assignment);
   }
-
 }
