@@ -1,5 +1,6 @@
 export interface Assignment {
-    student: {
+
+      student: {
         firstName: string,
         lastName: string
       },
@@ -7,6 +8,8 @@ export interface Assignment {
         file: File,
         comment: string,
         submmited_date: Date,
-        grade: number
+        grade: number,
+        status: String,
     }
+    id: Number;
 }

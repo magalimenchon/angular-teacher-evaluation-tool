@@ -1,1 +1,24 @@
+<div class="card text-center" *ngIf="assignment != undefined">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="['/calificar', assignment.id]">Tarea</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/registroCursada', assignment.id]">Registro / información de cursada</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Calificar a estudiante</a>
+        </li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <app-detail-assignment [(assignment)]="assignment"></app-detail-assignment>
+      <router-outlet></router-outlet>
+    </div>
+    <div class="card-footer text-muted">
+      Seminario Angular 2022
+    </div>
+  </div>
+<app-button-go-back></app-button-go-back>
 

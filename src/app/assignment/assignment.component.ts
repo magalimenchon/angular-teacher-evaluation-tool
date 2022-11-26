@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AssignmentDataService } from '../assignment-data.service';
+import { Assignment } from '../assignment-list/Assignment';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-assignment',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AssignmentComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  assignment: Assignment | undefined;
+
+  constructor(  private route: ActivatedRoute,
+                private assignmentDataService: AssignmentDataService) { }
 
   ngOnInit(): void {
+    this.getAssignment();
   }
+
+  getAssignment(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.assignmentDataService.getAssignmentById(id)
+      .subscribe(assignment => this.assignment = assignment);
+  }
+
 
 }

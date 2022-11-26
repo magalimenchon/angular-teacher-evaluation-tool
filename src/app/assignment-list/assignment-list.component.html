@@ -10,12 +10,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let assignment of assignments" >
+      <tr *ngFor="let assignment of assignments" 
+        class="alert"
+        [ngClass]="{
+                    'alert-success': (assignment.task.grade >= 4),
+                    'alert-warning': (assignment.task.grade == 0),
+                    'alert-danger': (assignment.task.grade < 4 && assignment.task.grade > 0)}">
         <td>{{assignment.student.lastName}}, {{assignment.student.firstName}}</td>
         <td>{{assignment.task.file}}</td>
         <td>{{assignment.task.comment}}</td>
         <td>{{assignment.task.submmited_date | date: 'medium'}}</td>
-        <td>definir</td> <!--CALIFICADO, PENDIENTE DE CALIFICACION, CALIFICADO FUERA DE TERMINO-->
+        <td>{{assignment.task.status}}</td> <!--CALIFICADO, PENDIENTE DE CALIFICACION, CALIFICADO FUERA DE TERMINO-->
         <td>{{assignment.task.grade}}</td> <!--CALIFICADO, PENDIENTE DE CALIFICACION-->
       </tr>
     </tbody>

@@ -1,0 +1,35 @@
+<div *ngIf="assignment != undefined">
+    <h2 class="card-title"> 
+        {{assignment.student.lastName}}, {{assignment.student.firstName}}
+    </h2>
+    <br>
+    <h5 class="card-title" >Detalle de la entrega </h5>
+    <br>
+    <h6 class="card-title" >Archivo adjunto: </h6>
+    <p class="card-text">
+        {{assignment.task.file}}
+    </p>
+    <h6>Comentario en línea: </h6>
+    <p class="card-text">
+        {{assignment.task.comment}}
+    </p>
+    <h6>Fecha de entrega: </h6>
+    <p class="card-text">
+        {{assignment.task.submmited_date | date: 'medium'}}
+    </p>
+    <div *ngIf="assignment.task.status == 'FUERA DE TÉRMINO'" 
+         class="alert alert-warning" role="alert">
+         {{assignment.task.status}}
+    </div>
+   <!-- <h5>
+        Ingresar nota: 
+    </h5>
+    <input id="number" type="number" min="1" max="10"/>
+    <br> <br>
+    <a href="#" class="btn btn-success">Enviar calificación</a>
+    <form (ngSubmit)="onSubmit()"> 
+        <input type="submit" value="Enviar calificación">
+    </form> -->
+    <app-form-qualification [assignment]="assignment"></app-form-qualification>
+</div>
+<!-- <p>cambio</p>-->
