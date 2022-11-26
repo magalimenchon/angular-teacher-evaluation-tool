@@ -14,7 +14,7 @@ export class AssignmentListToGradeComponent implements OnInit {
   constructor( private assignmentDataService: AssignmentDataService) { }
 
   ngOnInit(): void {
-    this.assignmentDataService.getAllToGrade()
+    this.assignmentDataService.getAll()
         .subscribe(assignmentsFromMockDataService => 
           this.assignments = assignmentsFromMockDataService
           .filter( assignment => assignment.task.grade.toString().length == 0)

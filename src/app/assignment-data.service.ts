@@ -35,15 +35,6 @@ export class AssignmentDataService {
     }
   }
 
-  public getAllToGrade(): Observable<Assignment[]> {
-    return this.http.get<Assignment[]>(URL)
-              .pipe(
-                tap( (assignmentsMockFromObservable: Assignment[]) =>
-               assignmentsMockFromObservable.filter(assignment => assignment.task.grade.toString().length == 0)
-                )
-              );
-  }
-
   public getAssignmentById(id: number): Observable<Assignment> {
     console.log(id);
     return this.http.get<Assignment>(URL + "/" + id).pipe();

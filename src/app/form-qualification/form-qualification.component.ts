@@ -24,8 +24,8 @@ export class FormQualificationComponent implements OnInit {
   }
 
   onSubmit(form: any): void {
-    console.log(form.values);
-    this.putAssignment(form.values);
+    console.log(form.value);
+    this.putAssignment(form.value);
     this.submitted = form.submitted;
     this.submitted.emit(form.submitted);
   }
@@ -33,7 +33,6 @@ export class FormQualificationComponent implements OnInit {
   putAssignment(values: any): void {
     if(values.grade >= 1 && values.grade <= 10){
       this.assignment.task.grade = values.grade;
-      this.assignmentChange.emit(this.assignment);
       this.assignmentDataService.putAssignmentById(this.assignment.id, this.assignment);
     }
   }
