@@ -30,10 +30,6 @@ export class FormQualificationComponent implements OnInit {
       this.assignment.task.grade = values.grade;
       this.assignmentChange.emit();
       this.assignmentDataService.putAssignmentById(this.assignment.id, this.assignment);
-    } else {
-
     }
-    //this.assignmentDataService.putAssignmentById(id)
-  //    .subscribe(assignment => this.assignment = assignment);
   }
 }

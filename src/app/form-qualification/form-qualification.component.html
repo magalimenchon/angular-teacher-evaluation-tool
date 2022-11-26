@@ -1,27 +1,14 @@
-<!-- <form [formGroup]="formQualification"  
-(ngSubmit)="submit(formQualification.value)">  
-    <div class="form-group">  
-        <label><h5>
-            Ingresar nota: 
-        </h5></label> 
-        <input id="number" type="number" min="1" max="10" formControlName="nombre"/>-->
-        <!-- [(ngModel)]="assignment.task.grade" -->
-   <!--     <br> <br>
-    </div>  
-</form>
--->
-
 <form (ngSubmit)="onSubmit(formQualification.value)" #formQualification="ngForm">
     <div class="mb-4">
         <label for="grade" class="form-label">Ingresar nota: </label>
-        <div class="d-grid gap-2 col-4">
+        <div class="d-grid gap-2 col-4" style="margin-left: 22rem;">
         <input type="number" min="1" max="10" class="form-control" id="grade" name="grade" [(ngModel)]="assignment.task.grade" required #grade="ngModel">
         </div>
         <br>
         <div [hidden]="grade.pristine || grade.valid || grade.value" class="alert alert-danger">Debe ingresar una nota.</div>
         <div [hidden]="grade.valid || !grade.value" class="alert alert-danger">La calificación debe ser entre 1 y 10.</div>
     </div> 
-    <div class="d-grid gap-2 col-4">
+    <div class="d-grid gap-2 col-4" style="margin-left: 22rem;">
         <button type="submit" class="btn btn-success" [disabled]="formQualification.invalid">Enviar calificación</button>
     </div>
 </form>
