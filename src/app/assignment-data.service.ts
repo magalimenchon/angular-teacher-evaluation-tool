@@ -41,7 +41,6 @@ export class AssignmentDataService {
   }
 
   public getAssignmentByIdToGrade(id: number): Observable<Assignment> {
-    console.log(id);
     return this.http.get<Assignment>(URL + "/" + id).pipe(
             tap( (assignmentMockFromObservable: Assignment) =>
                 this.setStatusToGrade(assignmentMockFromObservable))

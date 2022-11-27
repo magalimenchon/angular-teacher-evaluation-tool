@@ -27,7 +27,6 @@ export class TeacherEvaluationToolAssignmentsToGradeComponent implements OnInit 
 
   receiveIsUnchanged($event: any): void {
     this.isUnchanged = $event;
-    console.log("unchangeddd" + this.isUnchanged);
   }
 
   receivePercent($event: string) {

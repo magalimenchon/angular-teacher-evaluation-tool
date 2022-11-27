@@ -28,13 +28,11 @@ export class ProgressBarQualificationComponent implements OnInit,  OnChanges {
 
   setPercent(): string {
     const numericPersent = ( (this.totalTask - this.quantityToGrade) / this.totalTask) * 100;
-    console.log(numericPersent);
     return numericPersent.toString() + "%";
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // changes.prop contains the old and the new value...
-    console.log("holis");
+    console.log(changes);
     this.percent = this.setPercent();
   }
 
