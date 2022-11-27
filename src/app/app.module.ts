@@ -17,6 +17,7 @@ import { DetailAssignmentComponent } from './detail-assignment/detail-assignment
 import { FormQualificationComponent } from './form-qualification/form-qualification.component';
 import { FormsModule } from '@angular/forms'
 import { CommonModule } from '@angular/common';
+import { ProgressBarQualificationComponent } from './progress-bar-qualification/progress-bar-qualification.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { CommonModule } from '@angular/common';
     ButtonGoBackComponent,
     DetailAssignmentComponent,
     FormQualificationComponent,
+    ProgressBarQualificationComponent,
   ],
   imports: [
     BrowserModule,

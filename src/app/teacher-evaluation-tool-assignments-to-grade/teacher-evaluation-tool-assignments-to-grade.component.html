@@ -1,8 +1,18 @@
+<div class="col-11">
+  <app-progress-bar-qualification
+   [quantityToGrade]="quantityToGrade"
+   [totalTask]="totalTask"
+   [isUnchanged]="isUnchanged">
+  </app-progress-bar-qualification>
+</div>
+<div ></div>
 <div class="row">
     <div class="col-11">
-      <app-assignment-list-to-grade></app-assignment-list-to-grade>
-    </div>
-    <div class="col-1">
-      <!-- LLAMAR AL COMPONENTE DEL PORCENTAJE -->
+      <app-assignment-list-to-grade
+       (quantityToGradeChange)="receiveQuantityToGrade($event)"
+       (totalTaskChange)="receiveTotalTask($event)"
+       (isUnchangedChange)="receiveIsUnchanged($event)"
+       [percent]="percent">
+      </app-assignment-list-to-grade>
     </div>
 </div>
